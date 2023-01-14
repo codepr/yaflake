@@ -21,8 +21,7 @@ defmodule Yaflake.Node.MachineIDTest do
     end
 
     test "filters nil interface hw-addresses" do
-      [hwaddr | _rest] =
-        hwaddresses = [[101, 99, 54, 201, 88, 143], nil, nil]
+      [hwaddr | _rest] = hwaddresses = [[101, 99, 54, 201, 88, 143], nil, nil]
 
       <<_skip::integer-38, expected_id::integer-10>> = :binary.list_to_bin(hwaddr)
       expect(InterfaceMock, :getifaddrs, fn -> Enum.zip([[:en0, :en1, :lo], hwaddresses]) end)
