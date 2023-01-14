@@ -44,5 +44,15 @@ defmodule Yaflake.Node.MachineIDTest do
                    "expected an integer or a string or an atom representing a network interface",
                    fn -> MachineID.generate(89.21) end
     end
+
+    test "checks for validity of a given machine ID" do
+      MachineID.validate!(1000) == :ok
+    end
+
+    test "raises when a given machine ID is not valid" do
+      assert_raise RuntimeError,
+                   "Machine ID should be an integer between 0-1023, received: 1024",
+                   fn -> MachineID.validate!(1024) end
+    end
   end
 end

@@ -4,6 +4,7 @@ defmodule Yaflake.Node.MachineID do
   @machine_id_size 10
   @iface_hwaddr_size 48
 
+  @spec generate() :: non_neg_integer()
   def generate do
     hwaddr =
       interface_module().getifaddrs()
@@ -32,6 +33,13 @@ defmodule Yaflake.Node.MachineID do
   def generate(_) do
     raise ArgumentError,
       message: "expected an integer or a string or an atom representing a network interface"
+  end
+
+  @spec validate!(non_neg_integer()) :: :ok
+  def validate!(id) when id >= 0 and id < 1024, do: :ok
+
+  def validate!(id) do
+    raise RuntimeError, "Machine ID should be an integer between 0-1023, received: #{inspect(id)}"
   end
 
   defp interface_module, do: Application.get_env(:yaflake, :interface_module)
