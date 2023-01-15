@@ -1,8 +1,8 @@
-defmodule ExflakeTest do
+defmodule YaflakeTest do
   use ExUnit.Case
-  doctest Exflake
+  doctest Yaflake
 
-  test "greets the world" do
-    assert Exflake.hello() == :world
+  test "generates an ID" do
+    assert {:ok, _} = Yaflake.generate()
   end
 end

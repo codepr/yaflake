@@ -15,6 +15,7 @@ defmodule Yaflake.MixProject do
   def application do
     [
       extra_applications: [:logger]
+      # mod: {Yaflake, []}
     ]
   end
 
