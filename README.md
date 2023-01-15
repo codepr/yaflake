@@ -1,4 +1,4 @@
-# Yaflake
+# Yaflake - Yet Another Flake
 
 **TODO: Add description**
 
