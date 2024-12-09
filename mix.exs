@@ -22,7 +22,7 @@ defmodule Yaflake.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:credo, "~> 1.4", runtime: false},
+      {:credo, "~> 1.7.10", runtime: false},
       {:mox, "~> 1.0.2", only: :test}
     ]
   end
