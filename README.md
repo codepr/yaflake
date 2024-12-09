@@ -2,6 +2,14 @@
 
 **TODO: Add description**
 
+Generates a 128bit ID.
+Running an `iex` console example:
+
+```elixir
+iex(1)> Yaflake.generate()
+{:ok, 255499301669007360}
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
