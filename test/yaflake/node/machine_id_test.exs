@@ -46,7 +46,7 @@ defmodule Yaflake.Node.MachineIDTest do
     end
 
     test "checks for validity of a given machine ID" do
-      MachineID.validate!(1000) == :ok
+      assert MachineID.validate!(1000) == :ok
     end
 
     test "raises when a given machine ID is not valid" do

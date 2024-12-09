@@ -7,7 +7,8 @@ defmodule Yaflake.Worker do
   alias Yaflake.Node.MachineID
 
   def start_link(opts \\ []) do
-    GenServer.start_link(__MODULE__, opts, name: __MODULE__)
+    name = Keyword.get(opts, :worker_name, __MODULE__)
+    GenServer.start_link(__MODULE__, opts, name: name)
   end
 
   def generate do

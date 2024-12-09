@@ -3,7 +3,6 @@ defmodule Yaflake.WorkerTest do
   use ExUnit.Case, async: false
   import Mox, only: [stub: 3, set_mox_global: 1]
 
-  alias Yaflake.ID
   alias Yaflake.Node.InterfaceMock
   alias Yaflake.Worker
 
@@ -11,7 +10,7 @@ defmodule Yaflake.WorkerTest do
 
   setup do
     stub(InterfaceMock, :getifaddrs, fn -> [en1: [100, 86, 99, 156, 204, 19]] end)
-    start_supervised!({Worker, worker_id: 10})
+    start_supervised!({Worker, worker_id: 10, worker_name: :test_worker})
     :ok
   end
 
